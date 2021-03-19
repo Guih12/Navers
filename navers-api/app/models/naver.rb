@@ -1,0 +1,2 @@
+class Naver < ApplicationRecord
+end
