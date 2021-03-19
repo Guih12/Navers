@@ -8,5 +8,8 @@ Rails.application.routes.draw do
     sessions: 'sessions',
     registrations: 'registrations',
   }
+
+  get '/navers', to: 'navers#index'
+  post '/navers', to: 'navers#store'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
