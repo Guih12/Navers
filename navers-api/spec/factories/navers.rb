@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :naver do
-    name { "MyString" }
-    birthdate { "2021-03-19" }
-    adminssion_date { "2021-03-19" }
-    job_role { "MyString" }
-    user_id { 1 }
+    name { FFaker::NameBR.name }
+    birthdate { FFaker::Time.date }
+    adminssion_date { FFaker::Time.date }
+    job_role { FFaker::JobBR.title }
+    user_id { FFaker::Random.rand(1..1000) }
   end
 end
