@@ -30,6 +30,8 @@ class NaversController < ApplicationController
 
     if naver.save
       render json: naver, status: :created
+    else
+      render json: naver.errors, status: :bad_request
     end
 
   end

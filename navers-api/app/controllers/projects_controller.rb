@@ -29,9 +29,11 @@ class ProjectsController < ApplicationController
     project = Project.new(name: params[:name], navers: navers)
     project.user_id = current_user.id
     
-    puts project
+    
     if project.save
       render json: project, status: :created
+    else
+      render json: project.errors, status: :bad_request
     end
   end
   
