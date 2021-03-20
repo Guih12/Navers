@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     registrations: 'registrations',
   }
 
+  #endpoint navers
+  get '/navers', to: 'navers#index'
+  get '/navers/:id', to: 'navers#show'
+  post '/navers', to: 'navers#store'
+  put '/navers/:id', to: 'navers#update'
+  delete '/navers/:id', to: 'navers#destroy'
+
+  #endpoind projects
   get '/projects', to: 'projects#index'
   get '/projects/:id', to: 'projects#show'
   post '/projects', to: 'projects#store'
