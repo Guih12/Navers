@@ -11,8 +11,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id])
+ 
 
     if @project
+      puts request.headers['Authorization'].split(' ').last
       render json: {:project => @project, :navers => @project.navers}, status: :ok
     else
       render json: {message: "Projeto não encontrado"}, status: :not_found

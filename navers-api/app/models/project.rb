@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :naver_projects
   has_many :navers, through: :naver_projects
 
