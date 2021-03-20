@@ -4,16 +4,61 @@ require 'devise/jwt/test_helpers'
 RSpec.describe "Projects", type: :request do
  describe "GET /projects/" do
     let(:project) {create(:project)}
-    let(:headers) do 
-      {
-        'Content-Type' => 'application/json',
-        'Authorization' => 'Bearer' + 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4YWZhODQ5Ni1mMDI5LTQ2ODUtODMyMS1lYTUyYjRjNTRhYzgiLCJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjE2MjUwNTkyLCJleHAiOjE2MTg4NDI1OTJ9._jysmZNyC-neriihUuRz-zrXeohEuOUNsGsfBB5ou8M'
-      }
-    end
-    before(:each) {get "/projects", params: {name: project.name}, headers: headers}
-    it "return status code 200" do
-      
-      expect(response).to have_http_status(200) 
+    
+    before(:each) {get "/projects", params: {name: project.name}}
+
+    context 'user not authenticate' do
+      it 'return status code 401' do
+        expect(response).to have_http_status(401) 
+      end
     end
  end
+ 
+  describe "GET /projets/:id"do
+    let(:project) {create(:project)}
+
+    before(:each) {get "/projects/#{project.id}"}
+
+    context 'user not authenticate' do
+      it 'return status code 401' do
+        expect(response).to have_http_status(401)
+      end
+    end
+  end
+
+  describe "POST /project" do
+    let(:project) {create(:project)}
+    
+    before(:each) {post "/projects"}
+
+    context 'user not authenticate' do
+      it 'return status code 401' do
+        expect(response).to have_http_status(401)
+      end
+    end
+  end
+
+  describe "PUT /project/:id" do
+    let(:project) {create(:project)}
+    let(:project_attributes) {attributes_for(:project)}
+
+    before(:each) {put "/projects/#{project.id}", params:project_attributes}
+
+    context 'user not authenticate' do
+      it 'return status code 401' do
+        expect(response).to have_http_status(401) 
+      end
+    end
+  end
+
+  describe "DELETE /project/:id" do
+    let(:project) {create(:project)}
+    before(:each) {delete "/projects/#{project.id}"}
+    context 'user not authenticate' do
+      
+      it 'return status code 401' do
+        expect(response).to have_http_status(401)
+      end
+    end
+  end
 end
