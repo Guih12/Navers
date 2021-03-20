@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     registrations: 'registrations',
   }
 
-  get '/projects/:name', to: 'projects#index'
-  get '/projects/show/:id', to: 'projects#show'
+  get '/projects', to: 'projects#index'
+  get '/projects/:id', to: 'projects#show'
   post '/projects', to: 'projects#store'
+  put '/projects/:id', to: 'projects#update'
+  delete '/projects/:id', to: 'projects#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
