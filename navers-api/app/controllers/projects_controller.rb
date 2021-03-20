@@ -1,11 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   def index
-    project = Project.where("name LIKE ?", "%" + params[:name] + "%")
+
+    project = Project.search(name: params[:name])
+
     if project.blank?
       render json: {message: 'Projeto não encontrado'}, status: :not_found
     else
-      render json: {project: project}, status: :ok
+      render json: project, status: :ok
     end
   end
 
