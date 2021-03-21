@@ -1,7 +1,19 @@
 
+import React from 'react';
+
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Login from './components/login/Login'
+
+
 function App() {
+
+
   return (
-    <h1 className="has-text-primary">Seja bem vindo</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/login" exact component={Login}/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
