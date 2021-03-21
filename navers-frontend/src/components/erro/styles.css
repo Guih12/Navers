@@ -1,0 +1,15 @@
+.position{
+    top: 0px;
+    margin-left: 1000px;
+    animation: anima 0.5s ease-out
+}
+
+
+@keyframes anima{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: initial;
+    }
+}
