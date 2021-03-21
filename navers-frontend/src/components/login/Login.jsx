@@ -2,6 +2,8 @@ import React from 'react';
 import { API } from '../../API';
 import './styles.css';
 
+import {useHistory} from 'react-router-dom';
+
 import Error from '../erro/Error';
 
 const Login = () =>{
@@ -9,7 +11,9 @@ const Login = () =>{
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState('')
+    const [error, setError] = React.useState('');
+
+    const history = useHistory();
 
    async function handleLogin(e){
         e.preventDefault()
@@ -21,8 +25,11 @@ const Login = () =>{
                     password: password
                 }
             })
+            const emailUser = response.data.email
             const jwt = response.headers.authorization.split('Bearer ')[1]
             localStorage.setItem('token', jwt);
+            localStorage.setItem('email', emailUser);
+            history.push('/dashboard')
         }catch(err){
             setError('Usuário ou senha inválidos')
         }finally{

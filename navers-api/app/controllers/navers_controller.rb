@@ -6,7 +6,7 @@ class NaversController < ApplicationController
     navers = Naver.search(name: params[:name])
 
     if navers.blank?
-      render json: {message: "Naver não encontrado"}, status: :not_found
+      render json: {message: "Naver não encontrado"}
     else
       render json: navers, status: :ok
     end
