@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Header from './components/Header/Header';
 import Login from './components/login/Login'
 import NaverCadastre from './components/NaverCadastre/NaverCadastre';
+import Naver from './components/navers/Naver';
 import Navers from './components/navers/Navers';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/navers" component={Navers} />
             <Route path="/cadastre-naver" component={NaverCadastre} />
+            <Route path="/naver/:id" component={Naver} />
         </div>
       </Switch>
     </BrowserRouter>
