@@ -17,7 +17,13 @@ const Header =  () =>{
             </div>
             <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-start">
-                <Link to="/projetos" className="navbar-item">Projetos</Link>
+                <div className="navbar-item has-dropdown is-hoverable">
+                    <Link to="#" className="navbar-item">Projetos</Link>
+                    <div className="navbar-dropdown">
+                        <Link to="/cadastre-project" className="navbar-item">cadastrar</Link>
+                        <Link to="/projects" className="navbar-item">Listar</Link>
+                    </div>
+                </div>
                 <div className="navbar-item has-dropdown is-hoverable">
                     <Link to="#" className="navbar-item">Navers</Link>
                     <div className="navbar-dropdown">
