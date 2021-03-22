@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { API } from '../../API';
 import Naver from '../navers/Naver';
 
@@ -44,8 +45,9 @@ const Project = () => {
                 }
             })
             console.log(response)
+            alert(response.data.message)
         } catch (err) {
-            console.log(err)
+            alert('Esse projeto não te percente, logo não pode ser excluído')
         }finally{
             history.push('/projects')
         }
@@ -65,8 +67,9 @@ const Project = () => {
                 <div className="content-naver anime-left">
                 <span className="is-size-3"> {project.name} </span>
                 <span className="is-size-3"> {navers.name} </span>
-                        
-                    <button onClick={handleDelete} className="button mt-3 is-danger">Deletar</button>
+                    
+                    <Link to={`/project-update/${project.id}`} className="button mt-3 is-primary">ALTERAR</Link>
+                    <button onClick={handleDelete} className="button mt-3 is-danger">DELETAR</button>
                 </div>
             </div>
         </section>

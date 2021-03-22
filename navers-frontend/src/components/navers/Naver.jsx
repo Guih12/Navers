@@ -38,7 +38,7 @@ const Naver = () => {
                 }
             })
             console.log(response)
-            setError(response)
+            alert(response.data.message)
         } catch (err) {
            
         }finally{
@@ -63,7 +63,8 @@ const Naver = () => {
                     <span className="is-size-3"> {navers.name} </span>
                     <span className="is-size-5"> Data de nascimento  {navers.birthdate} </span>
                     <span className="is-size-5"> Cargo  {navers.job_role} </span>
-                    <button onClick={handleDelete} className="button mt-3 is-danger">Deletar</button>
+                    <Link to={`/naver-update/${navers.id}`} className="button mt-3 is-primary">ALTERAR</Link>
+                    <button onClick={handleDelete} className="button mt-3 is-danger">DELETAR</button>
                 </div>
             </div>
         </section>

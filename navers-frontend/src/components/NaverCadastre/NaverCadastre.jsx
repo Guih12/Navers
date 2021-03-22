@@ -1,6 +1,7 @@
 import React from 'react';
 import { API } from '../../API';
 import Confirmation from '../confirmation/Confirmation';
+import Error from '../erro/Error';
 
 
 const NaverCadastre = () =>{
@@ -12,11 +13,11 @@ const NaverCadastre = () =>{
     const [res, setRes] = React.useState('');
     const jwt = localStorage.getItem('token')
     const [loading, setLoading] = React.useState(false);
-
+    const [error, setError] = React.useState('');
     const [projects, setProjects] = React.useState([])
     const [selectProjectOptions, setSelectProjectOptions] = React.useState([])
 
-    function clearInput(){
+   function clearInput(){
         setName('');
         setBirthdate('');
         setJobRole('');
@@ -39,11 +40,11 @@ const NaverCadastre = () =>{
                     'Authorization': `Bearer ${jwt}`
                 }
             })
+            setRes('Naver criado com sucesso')
         }catch(err){
-            
+            setError('Preencha os campos obrigatórios')
         }finally{
             setLoading(false)
-            setRes('Naver criado com sucesso')
             clearInput();            
         }
     }
@@ -70,6 +71,7 @@ const NaverCadastre = () =>{
         <div className="columns">
             <div className="column is-4">
                 {res && <Confirmation data={res}/>}
+                {error && <Error error={error} />}
             </div>
         </div>
         <div className="columns anime-left is-justify-content-center">
@@ -114,12 +116,12 @@ const NaverCadastre = () =>{
                          className="input"/>
                         </div>
                         <div className="column">
-                                <label htmlFor="" className="label">Projetos id</label>
+                                <label htmlFor="" className="label">Projetos</label>
                                 <div className="select">
                                     
                                      <select onChange={e => setSelectProjectOptions(e.target.value)}>
                                         {projects.map(project =>(
-                                            <option key={project.id}> {project.id} </option>
+                                            <option value={project.id} key={project.id}> {project.name} </option>
                                         ))}
                                      </select>
                                 </div>
