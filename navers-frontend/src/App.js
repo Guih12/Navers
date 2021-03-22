@@ -2,6 +2,7 @@
 import React from 'react';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
 import Dashboard from './components/dashboard/Dashboard';
 import Header from './components/Header/Header';
 import Login from './components/login/Login'
@@ -11,6 +12,7 @@ import Navers from './components/navers/Navers';
 import ProjectCadastre from './components/projectCadastre/ProjectCadastre';
 import Project from './components/projects/Project';
 import Projects from './components/projects/Projects';
+import Signup from './components/signup/Signup';
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Login}/>
+        <Route path="/signup" component={Signup}/>
         <div className="container">
           <Header />
             <Route path="/dashboard" component={Dashboard} />

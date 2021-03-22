@@ -41,7 +41,7 @@ const Login = () =>{
     return(
         <div className="container-login">
                 {error && <Error error={error}/>}
-                <div className="column is-4 box mt-4">
+                <div className="column anime-left is-4 box mt-4">
                     <h1 className="is-size-2 has-text-centered mb-5 has-text-info">Naver's</h1>
                     <form onSubmit={handleLogin}>
                         <div className="field">
@@ -57,6 +57,10 @@ const Login = () =>{
                               onChange={e => setPassword(e.target.value)}
                               type="password" 
                               placeholder="Senha"/>
+                        </div>
+
+                        <div className="field">
+                            <span>Não tem uma conta? <a href="/signup" className="has-text-info">cadastra-se</a></span>
                         </div>
 
                         <div className="field mt-5">

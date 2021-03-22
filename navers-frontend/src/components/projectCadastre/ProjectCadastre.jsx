@@ -63,7 +63,7 @@ const ProjectCadastre = () => {
                 </div>
             </div>
 
-            <div className="columns is-justify-content-center">
+            <div className="columns anime-left is-justify-content-center">
                 <div className="column is-12 box mt-5">
                     <form onSubmit={handleCadastre}>
                         <div className="columns m-2">

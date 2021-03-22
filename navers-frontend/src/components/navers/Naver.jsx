@@ -7,6 +7,7 @@ import { API } from '../../API';
 const Naver = () => {
 
     const [navers, setNavers] = React.useState([])
+    const [erros, setError] = React.useState([]);
 
 
     let { id } = useParams();
@@ -37,8 +38,9 @@ const Naver = () => {
                 }
             })
             console.log(response)
+            setError(response)
         } catch (err) {
-            console.log(err)
+           
         }finally{
             history.push('/navers')
         }
@@ -53,6 +55,7 @@ const Naver = () => {
                     <h2 className="is-size-2 has-text-info has-text-weight-bold">NAVERS</h2>
                 </div>
             </div>
+            
 
             <div className="flex-box">
 

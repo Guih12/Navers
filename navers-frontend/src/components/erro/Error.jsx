@@ -13,7 +13,7 @@ const Error = ({error}) =>{
     
 
     return(
-        <div ref={content} class="notification is-danger position">
+        <div ref={content} class="notification is-danger anime-left">
         <button class="delete" onClick={handleHidden}></button>
             {error}
         </div>

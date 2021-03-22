@@ -13,6 +13,8 @@ const NaverCadastre = () =>{
     const jwt = localStorage.getItem('token')
     const [loading, setLoading] = React.useState(false);
 
+    const [projects, setProjects] = React.useState([])
+    const [selectProjectOptions, setSelectProjectOptions] = React.useState([])
 
     function clearInput(){
         setName('');
@@ -27,7 +29,8 @@ const NaverCadastre = () =>{
             name: name,
             birthdate: birthdate,
             admission_date: admissionDate,
-            job_role: jobRole
+            job_role: jobRole,
+            projects: [selectProjectOptions]
         }
         setLoading(true)
         try{
@@ -46,6 +49,22 @@ const NaverCadastre = () =>{
     }
 
 
+
+    React.useEffect(() =>{
+        async function loadingProjects() {
+            const response = await API.get(`projects`, {
+                headers: {
+                    'Authorization': `Bearer ${jwt}`
+                }
+            })
+
+            console.log(response.data)
+            setProjects(response.data)
+        }
+
+        loadingProjects();
+    }, [jwt])
+
     return(
     <div>
         <div className="columns">
@@ -53,7 +72,7 @@ const NaverCadastre = () =>{
                 {res && <Confirmation data={res}/>}
             </div>
         </div>
-        <div className="columns is-justify-content-center">
+        <div className="columns anime-left is-justify-content-center">
             <div className="column is-12 box mt-5">
                 <form onSubmit={handleCadastreNaver}>
 
@@ -94,6 +113,17 @@ const NaverCadastre = () =>{
                          onChange={e => setAdmissionDate(e.target.value)}
                          className="input"/>
                         </div>
+                        <div className="column">
+                                <label htmlFor="" className="label">Projetos id</label>
+                                <div className="select">
+                                    
+                                     <select onChange={e => setSelectProjectOptions(e.target.value)}>
+                                        {projects.map(project =>(
+                                            <option key={project.id}> {project.id} </option>
+                                        ))}
+                                     </select>
+                                </div>
+                            </div>
                     </div>
                     <div className="columns m-2">
                         <div className="column">
