@@ -20,7 +20,7 @@
 - [dotenv-rails]()
 
 
-### libs React utilizadas
+### Libs React utilizadas
 
 - [react-router-dom]()
 - [axios]()
@@ -48,3 +48,16 @@ $ raake db:migrate
 
 #### Inicie o servidor utilizando o comando:
 $ rails s
+
+### 🚀 Iniciando o frontend
+
+#### Acesse a pasta do projeto
+$ cd Navers/navers-frontend
+
+#### Instale as depêndencias utilizando o comando:
+$ yarn add
+
+#### Inicie o servidor utilizando o comando:
+$ yarn start
+
+
