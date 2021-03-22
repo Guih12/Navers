@@ -36,7 +36,7 @@ Antes de iniciar, você terá que ter instalado em sua maquina [Rails](https://r
 $ git clone <https://github.com/Guih12/Navers>
 
 #### Acesse a pasta do projeto
-
+$ cd Navers/navers-api
 #### Instale as depências utilzando o comando:
 $ bundle install
 
@@ -61,3 +61,9 @@ $ yarn add
 $ yarn start
 
 
+
+## Dificuldades
+
+A unica dificuldade que eu tive,foi em relação aos testes unitários, por conta
+do token JWT, não achei algum lugar que explicava como gerava um token para testes, 
+porém fiz alguns testes de autorização dos controllers protegidos.
