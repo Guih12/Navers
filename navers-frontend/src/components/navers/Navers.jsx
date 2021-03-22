@@ -42,7 +42,7 @@ const Navers = () =>{
             
 
             <div className="flex-box">
-            {navers.map(naver =>(
+            { navers.map(naver =>(
                 <div key={naver.id} className="content anime-left">
                     <span className="is-size-4"> {naver.name} </span>
                     <Link to={`/naver/${naver.id}`} >ver detalhes</Link>

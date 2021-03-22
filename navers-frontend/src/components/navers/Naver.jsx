@@ -2,12 +2,13 @@ import React from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { API } from '../../API';
+import Error from '../erro/Error';
 
 
 const Naver = () => {
 
     const [navers, setNavers] = React.useState([])
-    const [erros, setError] = React.useState([]);
+    const [error, setError] = React.useState('');
 
 
     let { id } = useParams();
@@ -37,13 +38,12 @@ const Naver = () => {
                     'Authorization': `Bearer ${jwt}`
                 }
             })
-            console.log(response)
-            alert(response.data.message)
-        } catch (err) {
-           
-        }finally{
+            alert('Naver deletado com sucesso')
             history.push('/navers')
-        }
+
+        } catch (err) {
+            setError('Esse projeto não te percente, logo não pode ser excluído')
+        } 
     }
 
 
@@ -55,7 +55,11 @@ const Naver = () => {
                     <h2 className="is-size-2 has-text-info has-text-weight-bold">NAVERS</h2>
                 </div>
             </div>
-            
+            <div className="columns">
+                <div className="column is-4">
+                    {error && <Error error={error} />}
+                </div>
+            </div>
 
             <div className="flex-box">
 
