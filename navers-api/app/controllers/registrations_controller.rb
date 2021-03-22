@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.errors.empty?
       render json: resource
     else
-      render json: resource.erros
+      render json: resource.errors
     end
   end
 end

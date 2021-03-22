@@ -26,8 +26,9 @@ class ProjectsController < ApplicationController
 
     navers = Naver.where(id: params[:navers])
     
-    project = Project.new(name: params[:name], navers: navers)
+    project = Project.new(name: params[:name])
     project.user_id = current_user.id
+    project.navers = navers
     
     
     if project.save

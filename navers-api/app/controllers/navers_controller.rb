@@ -54,7 +54,7 @@ class NaversController < ApplicationController
       naver.destroy
       render json: {message: "Naver deletado com sucesso"}, status: :ok
     else
-      render json: {message: "Esse naver não te pertecente"}, status: :anauthorized
+      render json: {message: "Esse naver não te pertecente"}, status: :ok
     end
   end
 
