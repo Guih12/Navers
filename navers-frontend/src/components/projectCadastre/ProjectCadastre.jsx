@@ -68,7 +68,7 @@ const ProjectCadastre = () => {
                     <form onSubmit={handleCadastre}>
                         <div className="columns m-2">
                             <div className="column is-4">
-                                <h1 className="has-text-info is-size-3">Cadastrar Naver</h1>
+                                <h1 className="has-text-info is-size-3">Cadastrar Projeto</h1>
                             </div>
                         </div>
 
