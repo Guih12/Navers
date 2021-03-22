@@ -44,6 +44,9 @@ class NaversController < ApplicationController
       naver.update(naver_params)
       naver.update(projects: project)
       render json: naver
+    
+    else
+      render json: {messaaage: "Esse naver não te pertecente"}, status: :not_found
     end
   end
 
@@ -54,7 +57,7 @@ class NaversController < ApplicationController
       naver.destroy
       render json: {message: "Naver deletado com sucesso"}, status: :ok
     else
-      render json: {message: "Esse naver não te pertecente"}, status: :ok
+      render json: {message: "Esse naver não te pertecente"}, status: :not_found
     end
   end
 

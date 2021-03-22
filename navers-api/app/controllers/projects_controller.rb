@@ -39,8 +39,13 @@ class ProjectsController < ApplicationController
   end
   
   def update
-    project = Project.where(id: params[:id], user_id: current_user.id)
+
+    puts current_user.id
+
+    project = Project.find_by(id: params[:id], user_id: current_user.id)
     navers = Naver.where(id: params[:navers])
+    
+    puts project
 
     if project
       project.update(name: params[:name], navers: navers)
