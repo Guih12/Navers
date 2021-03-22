@@ -42,7 +42,7 @@ const Naver = () => {
             history.push('/navers')
 
         } catch (err) {
-            setError('Esse projeto não te percente, logo não pode ser excluído')
+            setError('Esse Naver não te percente, logo não pode ser excluído')
         } 
     }
 
