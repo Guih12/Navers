@@ -28,8 +28,7 @@
 
 ### Pré-requisitos
 
-Antes de iniciar, você terá que ter instalado em sua maquina -[ruby], -[React], -[GIT]
-e -[yarn]
+Antes de iniciar, você terá que ter instalado em sua maquina [Rails](https://rubyonrails.org/),[React](https://pt-br.reactjs.org/) e [yarn](https://yarnpkg.com/)
 
 ### 🚀 Iniciando o Backend
 
