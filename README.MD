@@ -44,7 +44,7 @@ $ bundle install
 $ rake db:create
 
 #### Crie as migrations utilizando o comando:
-$ raake db:migrate
+$ rake db:migrate
 
 #### Inicie o servidor utilizando o comando:
 $ rails s
