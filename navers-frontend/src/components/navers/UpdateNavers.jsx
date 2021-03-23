@@ -17,7 +17,7 @@ const UpdateNavers = () => {
     const jwt = localStorage.getItem('token')
     const [loading, setLoading] = React.useState(false);
 
-    const { id } = useParams
+    const { id } = useParams()
 
     const [projects, setProjects] = React.useState([])
     const [selectProjectOptions, setSelectProjectOptions] = React.useState([])

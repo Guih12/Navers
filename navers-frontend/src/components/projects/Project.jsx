@@ -65,8 +65,7 @@ const Project = () => {
             <div className="flex-box">
 
                 <div className="content-naver anime-left">
-                <span className="is-size-3"> {project.name} </span>
-                <span className="is-size-3"> {navers.name} </span>
+               <p className="is-size-4">Nome projeto:  <span className="is-size-3 has-text-weight-bold"> {project.name} </span></p>
                     
                     <Link to={`/project-update/${project.id}`} className="button mt-3 is-primary">ALTERAR</Link>
                     <button onClick={handleDelete} className="button mt-3 is-danger">DELETAR</button>

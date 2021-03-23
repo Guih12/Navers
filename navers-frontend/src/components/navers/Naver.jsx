@@ -23,10 +23,15 @@ const Naver = () => {
                 }
             })
             setNavers(response.data.naver)
+
+
         }
 
         getNaver();
     }, [id, jwt])
+
+
+    
 
 
     async function handleDelete(e) {
@@ -43,7 +48,7 @@ const Naver = () => {
 
         } catch (err) {
             setError('Esse Naver não te percente, logo não pode ser excluído')
-        } 
+        }
     }
 
 
@@ -64,9 +69,10 @@ const Naver = () => {
             <div className="flex-box">
 
                 <div className="content-naver anime-left">
-                    <span className="is-size-3"> {navers.name} </span>
-                    <span className="is-size-5"> Data de nascimento  {navers.birthdate} </span>
-                    <span className="is-size-5"> Cargo  {navers.job_role} </span>
+                   <p className="is-size-4"> nome:  <span className="is-size-3 has-text-weight-bold"> {navers.name} </span></p>
+                   <p className="is-size-4"> Data de nascimento:  <span className="is-size-3 has-text-weight-bold">  {navers.birthdate} </span> </p>
+                   <p className="is-size-4"> Cargo:  <span className="is-size-3 has-text-weight-bold"> {navers.job_role} </span> </p>
+
                     <Link to={`/naver-update/${navers.id}`} className="button mt-3 is-primary">ALTERAR</Link>
                     <button onClick={handleDelete} className="button mt-3 is-danger">DELETAR</button>
                 </div>
